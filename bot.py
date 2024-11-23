@@ -1,8 +1,13 @@
+import os
 import discord
 from discord.ext import commands
 
-# Replace with your bot token
-BOT_TOKEN = "YOUR_BOT_TOKEN"
+# Load the bot token from the environment variable
+BOT_TOKEN = os.getenv("TOKEN")
+
+# Check if the token is not set
+if not BOT_TOKEN:
+    raise ValueError("Bot token not found. Please set the 'TOKEN' environment variable.")
 
 # Intents for the bot
 intents = discord.Intents.default()
